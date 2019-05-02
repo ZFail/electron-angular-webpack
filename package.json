@@ -20,7 +20,7 @@
 	"license": "MIT",
 	"main": "electron.js",
 	"scripts": {
-		"dev": "tsc electron.ts --outDir . && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
+		"dev": "tsc electron.ts --outDir . && cross-env NODE_ENV=dev webpack-dev-server --port=4200 --hot",
 		"prod": "webpack && electron dist/electron.js",
 		"packager:win": "cross-env NODE_OS=win node builder/packager.js",
 		"packager:mac": "cross-env NODE_OS=mac node builder/packager.js",
@@ -30,6 +30,7 @@
 		"installer:linux": "npm run packager:linux && cross-env NODE_OS=linux node builder/installer.js"
 	},
 	"devDependencies": {
+		"@angularclass/hmr": "^2.1.3",
 		"clean-webpack-plugin": "^0.1.19",
 		"concurrently": "^3.5.1",
 		"copy-webpack-plugin": "^4.5.1",
@@ -40,8 +41,8 @@
 		"file-loader": "^1.1.11",
 		"html-loader": "^0.5.5",
 		"html-webpack-plugin": "^3.2.0",
-		"img-loader": "^3.0.0",
 		"imagemin": "^5.3.1",
+		"img-loader": "^3.0.0",
 		"lodash": "^4.17.10",
 		"node-sass": "^4.9.0",
 		"postcss-loader": "^2.1.5",

@@ -6,4 +6,16 @@ import { Component } from '@angular/core';
     styleUrls: [require('./app.component.scss')]
 })
 export class AppComponent {
+    title: string = 'def title23'
+
+    constructor() {
+        console.warn('AppComponent')
+    }
+
+    ngOnInit() {
+        console.warn('AppComponent ngOnInit')
+    }
+    ngOnDestroy() {
+        console.warn('AppComponent ngOnDestroy')
+    }
 }

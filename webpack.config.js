@@ -30,10 +30,12 @@ const pathsToClean = [
 let webpackConfig = {
     mode: 'none',
     // How source maps are generated : style of source mapping
-    devtool: dev ? 'eval-cheap-module-source-map' : false,
+    devtool: false,//dev ? 'eval-cheap-module-source-map' : false,
     // Development server configuration
     devServer: {
         historyApiFallback: true,
+        inline: true,
+        hot: true,
         // Execute custom middleware after all other middleware internally within the server
         after() {
             // Fix whitescreen bug on build with Electron BrowserWindow
@@ -143,7 +145,7 @@ let webpackConfig = {
         warnings: false
     },
     // Target a specific environment (cf. doc)
-    target: 'electron-main',
+    target: 'electron-renderer',
     // Configure whether to polyfill or mock certain Node.js globals and modules
     node: {
         __dirname: false
@@ -153,6 +155,7 @@ let webpackConfig = {
         new HtmlWebpackPlugin(indexConfig),
         new Webpack.ContextReplacementPlugin(/angular([\\\/])core([\\\/])/, path.resolve(__dirname, './src')),
         new CopyWebpackPlugin(['./package.json']),
+        new Webpack.NamedModulesPlugin(),
     ],
 };
 
