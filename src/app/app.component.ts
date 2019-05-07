@@ -1,21 +1,24 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import {IdServiceService} from './id-service/id-service.service';
 
 @Component({
-    selector: 'demo-app',
-    templateUrl: require('./app.component.html'),
-    styleUrls: [require('./app.component.scss')]
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-    title: string = 'def title23'
+  title = "Angular 7 HMR23";
+  id: number = this.idServiceService.generateId()
 
-    constructor() {
-        console.warn('AppComponent')
-    }
+  constructor(private idServiceService: IdServiceService) {
+    console.warn('AppComponent', this.id);
+  }
 
-    ngOnInit() {
-        console.warn('AppComponent ngOnInit')
-    }
-    ngOnDestroy() {
-        console.warn('AppComponent ngOnDestroy')
-    }
+  ngOnInit() {
+    console.warn('AppComponent ngOnInit', this.id);
+  }
+
+  ngOnDestroy() {
+    console.warn('AppComponent ngOnDestroy', this.id);
+  }
 }
