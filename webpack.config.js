@@ -85,10 +85,7 @@ let webpackConfig = {
                     },
                     'extract-loader',
                     {
-                        loader: 'css-loader',
-                        options: {
-                            minimize: !dev
-                        }
+                        loader: 'css-loader'
                     },
                     {
                         loader: 'postcss-loader',
