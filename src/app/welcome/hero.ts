@@ -6,6 +6,6 @@ export class Hero {
     }
 
     getCoolName() {
-        return 'cool!2sdf' + this.name
+        return 'cool!2sdf2' + this.name
     }
 }
